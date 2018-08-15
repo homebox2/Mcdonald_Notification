@@ -39,4 +39,4 @@ json_payload = {
     }]
 }
 post_msg_url = "https://hooks.slack.com/services/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"
-requests.post(post_msg_url, json=json_payload)
+requests.post(post_msg_url, data=json_payload)
