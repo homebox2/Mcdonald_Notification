@@ -70,5 +70,3 @@ def lambda_handler(event, context):
     #     }
     #     response = requests.post(reactions_add_url, json=emoji_payload)
     #     print(response.content)
-
-lambda_handler(None, None)
