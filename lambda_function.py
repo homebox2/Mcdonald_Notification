@@ -2,19 +2,21 @@
 # -*- coding: utf-8 -*-
 import requests
 
-channel_id = "C0BU52LDQ"  # mage-research-room
+office_orders_channel_id = "CH9R3B128"  # office_orders
 test_id = "CA9FU10N4"  # sean-testroom
+
 sean_slack_token = "xoxp-2151498087-342741108625-350366769909-de1330f405b0f954a5c62bc8fa33b0ad"
 
 def send_notification():
     message = "\n".join([
-        "*早安，您好!*",
-        "星期三速食日又到了， @jane 準備好來份速食了嗎？",
+        "*早安，您好。感恩，讚嘆！*",
+        "星期三速食日又到了，@jane 準備好來份速食了嗎？",
     ])
 
     json_payload = {
-        "channel": channel_id,
+        "channel": office_orders_channel_id,
         "parse": "full",
+        "username": "麥當勞提醒器",
         "unfurl_media": True,
         "unfurl_links": True,
         "text": "@here https://imgur.com/a/tkGDiMP",
@@ -40,22 +42,21 @@ def send_notification():
             ]
         }]
     }
-    post_msg_url = "https://hooks.slack.com/services/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"
-    return requests.post(post_msg_url, json=json_payload)
+    post_msg_url = "https://hooks.slack.com/services/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"
+    return requests.post(post_msg_url, json=json_payload).content
 
-
-def get_last_message():
-    channel_history_url = "https://slack.com/api/channels.history"
-    history_payload = {
-        "token": sean_slack_token,
-        "channel": channel_id,
-        "count": 1
-    }
-    response = requests.post(channel_history_url, json=history_payload)
-    return response.content
+# def get_last_message():
+#     channel_history_url = "https://slack.com/api/channels.history"
+#     history_payload = {
+#         "token": sean_slack_token,
+#         "channel": channel_id,
+#         "count": 1
+#     }
+#     response = requests.post(channel_history_url, json=history_payload)
+#     return response.json_payload
 
 def lambda_handler(event, context):
-    send_notification()
+    return send_notification()
 
     # print(get_last_message())
 
