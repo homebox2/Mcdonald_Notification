@@ -44,27 +44,3 @@ def send_mcdonald_notification(event, context):
     }
     post_msg_url = "https://hooks.slack.com/services/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"
     return requests.post(post_msg_url, json=json_payload).content
-
-# def get_last_message():
-#     channel_history_url = "https://slack.com/api/channels.history"
-#     history_payload = {
-#         "token": sean_slack_token,
-#         "channel": channel_id,
-#         "count": 1
-#     }
-#     response = requests.post(channel_history_url, json=history_payload)
-#     return response.json_payload
-
-# print(get_last_message())
-
-# reactions_add_url = "https://slack.com/api/reactions.add"
-#
-# for emoji in [":mcdonalds:"]:
-#     emoji_payload = {
-#         "token": "tKLwoecuqJQO74D8VEnToucV",
-#         "name": emoji,
-#         "channel": channel_id,
-#         "timestamp": timestamp
-#     }
-#     response = requests.post(reactions_add_url, json=emoji_payload)
-#     print(response.content)
