@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+import requests
+
+office_orders_channel_id = "CH9R3B128"  # office_orders
+test_id = "CA9FU10N4"  # sean-testroom
+
+
+def send_happy_food_notification(event, context):
+    message = "\n".join([
+        "*午安，您好。*",
+        "星期四中午要吃一日樂食嗎～",
+        "今天 19:00 收單 +1請留言+多少錢",
+        "*除了燉牛肉和鷹嘴豆，要記得選醬哦！*",
+    ])
+
+    json_payload = {
+        "channel": office_orders_channel_id,
+        "parse": "full",
+        "unfurl_media": True,
+        "unfurl_links": True,
+        "text": "@here https://imgur.com/TXSv3IP",
+        "attachments": [{
+            "image_url": "https://imgur.com/TXSv3IP",
+            "text": message,
+            "actions": [
+                {
+                    "text": "-----菜單請點我-----",
+                    "type": "button",
+                    "url": "https://deliexpress.oddle.me/zh_TW/"
+                }
+            ]
+        }]
+    }
+    post_msg_url = "https://hooks.slack.com/services/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"
+    return requests.post(post_msg_url, json=json_payload).content
