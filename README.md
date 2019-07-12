@@ -1,4 +1,10 @@
 # Mcdonald_Notification
 use to notify mcdelivery on slack
 
-`aws lambda update-function-code --function-name McDonald-Notification --zip-file fileb://../McDonald-Notification.zip`
+# deploy
+- `make mcdonald-deploy`
+- `make happy-food-deploy`
+
+# create lambda function
+- `make create-function function_name={} handler={}`
+- ex `make create-function function_name=sean-test handler=lambda_handler.main`
