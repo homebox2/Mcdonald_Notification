@@ -18,10 +18,7 @@ def send_happy_food_notification(event, context):
 
     json_payload = {
         "channel": office_orders_channel_id,
-        "parse": "full",
-        "unfurl_media": True,
-        "unfurl_links": True,
-        "text": "@here https://imgur.com/TXSv3IP",
+        "text": "<!here> https://imgur.com/TXSv3IP",
         "attachments": [{
             "image_url": "https://imgur.com/TXSv3IP",
             "text": message,
