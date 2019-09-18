@@ -10,18 +10,14 @@ sean_slack_token = "xoxp-2151498087-342741108625-350366769909-de1330f405b0f954a5
 def send_mcdonald_notification(event, context):
     message = "\n".join([
         "*早安，您好。感恩，讚嘆！*",
-        "星期三速食日又到了，@jane 準備好來份速食了嗎？",
+        "星期三速食日又到了，<@U6FK11X5E> 準備好來份速食了嗎？",
     ])
 
     json_payload = {
         "channel": office_orders_channel_id,
-        "parse": "full",
         "username": "麥當勞提醒器",
-        "unfurl_media": True,
-        "unfurl_links": True,
-        "text": "@here https://imgur.com/a/tkGDiMP",
+        "text": "<!here> https://imgur.com/a/tkGDiMP",
         "attachments": [{
-            "image_url": "https://imgur.com/a/tkGDiMP",
             "text": message,
             "actions": [
                 {
