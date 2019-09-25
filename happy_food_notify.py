@@ -10,7 +10,7 @@ test_id = "CA9FU10N4"  # sean-testroom
 
 def send_happy_food_notification(event, context):
     message = "\n".join([
-        "*午安，您好。*",
+        "<!here> *午安，您好。*",
         "星期四中午要吃一日樂食嗎～",
         "今天 19:00 收單 +1請留言+多少錢",
         "*除了燉牛肉和鷹嘴豆，要記得選醬哦！*",
@@ -18,9 +18,8 @@ def send_happy_food_notification(event, context):
 
     json_payload = {
         "channel": office_orders_channel_id,
-        "text": "<!here> https://imgur.com/TXSv3IP",
         "attachments": [{
-            "image_url": "https://imgur.com/TXSv3IP",
+            "image_url": "https://i.imgur.com/TXSv3IP.jpg",
             "text": message,
             "actions": [
                 {
