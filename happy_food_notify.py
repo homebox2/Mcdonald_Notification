@@ -11,8 +11,8 @@ test_id = "CA9FU10N4"  # sean-testroom
 def send_happy_food_notification(event, context):
     message = "\n".join([
         "<!here> *午安，您好。*",
-        "星期四中午要吃一日樂食嗎～",
-        "今天 19:00 收單 +1請留言+多少錢",
+        "<@U0QLXH31U> : 星期四中午要吃一日樂食嗎～",
+        "今天 *17:00* 收單 +1請留言+多少錢",
         "*除了燉牛肉和鷹嘴豆，要記得選醬哦！*",
     ])
 
