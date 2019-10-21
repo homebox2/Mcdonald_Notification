@@ -30,5 +30,5 @@ def send_happy_food_notification(event, context):
             ]
         }]
     }
-    post_msg_url = "https://hooks.slack.com/services/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"
+    post_msg_url = "https://hooks.slack.com/services/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"
     return requests.post(post_msg_url, json=json_payload).content
