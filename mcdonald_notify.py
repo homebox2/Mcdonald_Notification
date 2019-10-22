@@ -10,7 +10,7 @@ sean_slack_token = "xoxp-2151498087-342741108625-350366769909-de1330f405b0f954a5
 def send_mcdonald_notification(event, context):
     message = "\n".join([
         "<!here> *早安，您好。感恩，讚嘆！*",
-        "星期三速食日又到了，<@U6FK11X5E> 準備好來份速食了嗎？",
+        "每週速食日又到了，<@U6FK11X5E> 準備好來份速食了嗎？",
     ])
 
     json_payload = {
