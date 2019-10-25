@@ -3,6 +3,8 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import requests
+import os
+
 
 office_orders_channel_id = "CH9R3B128"  # office_orders
 test_id = "CA9FU10N4"  # sean-testroom
@@ -30,5 +32,8 @@ def send_happy_food_notification(event, context):
             ]
         }]
     }
-    post_msg_url = "https://hooks.slack.com/services/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"
-    return requests.post(post_msg_url, json=json_payload).content
+    return requests.post(
+        # for security issue, url will define in lambda environment variables
+        os.environ.get("slack_hooks_url"),
+        json=json_payload
+    ).content

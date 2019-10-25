@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import requests
+import os
+
 
 office_orders_channel_id = "CH9R3B128"  # office_orders
 test_id = "CA9FU10N4"  # sean-testroom
 
-sean_slack_token = "xoxp-2151498087-342741108625-350366769909-de1330f405b0f954a5c62bc8fa33b0ad"
 
 def send_mcdonald_notification(event, context):
     message = "\n".join([
@@ -38,5 +39,8 @@ def send_mcdonald_notification(event, context):
             ]
         }]
     }
-    post_msg_url = "https://hooks.slack.com/services/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"
-    return requests.post(post_msg_url, json=json_payload).content
+    return requests.post(
+        # for security issue, url will define in lambda environment variables
+        os.environ.get("slack_hooks_url"),
+        json=json_payload
+    ).content
