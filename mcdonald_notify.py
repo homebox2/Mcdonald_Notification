@@ -27,11 +27,6 @@ def send_mcdonald_notification(event, context):
                     "url": "https://www.mcdelivery.com.tw/tw/browse/menu.html"
                 },
                 {
-                    "text": "漢堡王",
-                    "type": "button",
-                    "url": "http://www.burgerking.com.tw/menu.php"
-                },
-                {
                     "text": "肯德基",
                     "type": "button",
                     "url": "https://www.kfcclub.com.tw/tw/Menu/hot-meal/hot-menu"
